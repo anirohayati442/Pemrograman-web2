@@ -12,5 +12,6 @@ Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
 //protect halaman products suapaya halaman resource hanya bisa di akses jika usernya berhasil login, jd tanpa login ga bisa membuka ini
 Route::middleware('auth')->group(function(){
+    Route::get('/products/download-pdf',[ProductController::class,'downloadPdf'])->name('products.pdf');
     Route::resource('products',ProductController::class);
 });

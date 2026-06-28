@@ -34,6 +34,8 @@ class ProductController extends Controller
         $request->validate(
             [
                 'nama_barang' => 'required',
+                'bahan' => 'required',
+                'warna' => 'required',
                 'harga' => 'required|numeric',
                 'stok' => 'required|numeric',
                 'deskripsi' => 'required'
@@ -68,6 +70,8 @@ class ProductController extends Controller
         $request->validate(
             [
                 'nama_barang' => 'required',
+                'bahan' => 'required',
+                'warna' => 'required',
                 'harga' => 'required|numeric',
                 'stok' => 'required|numeric',
                 'deskripsi' => 'required'
@@ -101,7 +105,7 @@ class ProductController extends Controller
         compact('products')
     );
         //cara otomatis ke download pdf nya
-        return $pdf->download('Laporan-Data-Product-Toko-Canteek.Style.pdf');
+        return $pdf->download('Laporan-Data-Product-Canteek.Style.pdf');
     }
 
 }

@@ -1,13 +1,13 @@
 <html>
     <head>
-        <title>Produk Item Toko Canteek.Style</title>
+        <title>Produk Canteek.Style</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body class="p-4">
         @include('navbar')
         <div class="flex gap-2 mb-5">
-        <button onclick="toggle_modal()" class="bg-blue-500 text-white px-4 py-2 rounded">
+        <button onclick="toggle_modal()" class="bg-pink-500 text-white px-4 py-2 rounded">
             + Tambah Item 
         </button>
         <a href="{{ route('products.pdf') }}" class="bg-red-500 text-white px-4 py-2 rounded font-medium flex items-center gap-1 hover:bg-red-700 transition">
@@ -19,6 +19,8 @@
             <thead>
                 <tr class="bg-gray-300">
                     <th class="border p-2">Nama Item</th>
+                    <th class="border p-2">Bahan</th>
+                    <th class="border p-2">Warna</th>
                     <th class="border p-2">Harga</th>
                     <th class="border p-2">Stok</th>
                     <th class="border p-2">Deskripsi</th>
@@ -29,6 +31,8 @@
                 @foreach ($products as $p)
                 <tr>
                     <td class="border p-2">{{ $p->nama_barang }}</td>
+                    <td class="border p-2">{{ $p->bahan }}</td>
+                    <td class="border p-2">{{ $p->warna }}</td>
                     <td class="border p-2">Rp.{{ number_format ($p->harga,0,',','.') }}</td>
                     <td class="border p-2">{{ $p->stok }}</td>
                     <td class="border p-2">{{ $p->deskripsi }}</td>
@@ -58,15 +62,19 @@
                     @csrf
                     <label for="nama_barang" class="text-sm">Nama Barang</label>
                     <input type="text" name="nama_barang" class="w-full border p-2 mb-3 rounde" required>
+                    <label for="nama_barang" class="text-sm">Bahan</label>
+                    <input type="text" name="bahan" class="w-full border p-2 mb-3 rounde" required>
+                    <label for="nama_barang" class="text-sm">Warna</label>
+                    <input type="text" name="warna" class="w-full border p-2 mb-3 rounde" required>
                     <label for="harga" class="text-sm">Harga</label>
-                    <input type="number" name="harga" class="w-full border p-2 mb-3rounde" required>
+                    <input type="number" name="harga" class="w-full border p-2 mb-3 rounde" required>
                     <label for="stok" class="text-sm">Stok</label>
-                    <input type="number" name="stok" class="w-full border p-2 mb-3rounde" required>
+                    <input type="number" name="stok" class="w-full border p-2 mb-3 rounde" required>
                     <label for="deskripsi" class="text-sm">Deskripsi</label>
-                    <textarea name="deskripsi" class="w-full border p-2 mb-3rounde"></textarea>
+                    <textarea name="deskripsi" class="w-full border p-2 mb-3 rounde"></textarea>
                     <div class="flex justify-end gap-3 mt-2">
                          <button type="button" onclick="toggle_modal()" class="text-gray-500">Batal</button>
-                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-2xl">Simpan</button>
+                         <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded-2xl">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -80,6 +88,10 @@
                     @method('PUT')
                     <label for="nama_barang" class="text-sm">Nama Barang</label>
                     <input type="text" id="edit_nama_barang" name="nama_barang" class="w-full border p-2 mb-3 rounde" required>
+                    <label for="bahan" class="text-sm">Bahan</label>
+                    <input type="text" id="edit_bahan" name="bahan" class="w-full border p-2 mb-3 rounde" required>
+                    <label for="warna" class="text-sm">Warna</label>
+                    <input type="text" id="edit_warna" name="warna" class="w-full border p-2 mb-3 rounde" required>
                     <label for="harga" class="text-sm">Harga</label>
                     <input type="number" id="edit_harga" name="harga" class="w-full border p-2 mb-3rounde" required>
                     <label for="stok" class="text-sm">Stok</label>
@@ -107,6 +119,8 @@
 
     // Mengisi value input form dengan item yang dipilih
     document.getElementById('edit_nama_barang').value = item.nama_barang;
+    document.getElementById('edit_bahan').value = item.bahan;
+    document.getElementById('edit_warna').value = item.warna;
     document.getElementById('edit_harga').value = item.harga;
     document.getElementById('edit_stok').value = item.stok;
     document.getElementById('edit_deskripsi').value = item.deskripsi;

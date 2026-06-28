@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Login Toko Canteek.Style</title>
+        <title>Login Canteek.Style</title>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="bg-gray-100 flex items-center justify-center h-screen">
@@ -15,7 +15,7 @@
                     <label for="password" class="text-sm">Password</label>
                     <input type="password" name="password" class="w-full border p-2 mb-3 rounded-2xl" required>
 
-                    <button type="submit" class="bg-blue-500 text-white w-full py-2 rounded-2xl">Login</button>
+                    <button type="submit" class="bg-pink-500 text-white w-full py-2 rounded-2xl">Login</button>
                 </form>
                 @error('login_error')
                 <p class="text-red-500 text-sm mb-3 text-center">{{ $message }}</p>

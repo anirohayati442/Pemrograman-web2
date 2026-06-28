@@ -37,9 +37,20 @@
     </head>
     <body>
         <div class="header">
-            <div class="title">LAPORAN DATA PRODUK CANTEEK.STYLE</div>
-            <p>Jl.K.H Fayumi Thowel No.123, Kab.Serang</p>
+            <table style="width:100%; border:none;">
+                <tr>
+                    <td style="width:90px; border:none; text-align:center;">
+                        <img src="{{ public_path('images/canteek.jpeg') }}" alt="Logo" width="120">
+                    </td>
+
+                    <td style="border:none; text-align:center;">
+                        <div class="title">LAPORAN DATA PRODUK CANTEEK.STYLE</div>
+                        <p>Jl.K.H Fayumi Thowel No.123, Kab.Serang</p>
+                    </td>
+                </tr>    
+            </table>
         </div>
+
         <table>
             <thead>
                 <tr>
